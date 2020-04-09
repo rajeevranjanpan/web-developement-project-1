@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<style>
+a:link, a:visited {
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: black;
+}
+.danger {
+  background-color: white;
+  border-left: 60px solid grey;
+}
+.button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.tab{
+  display:inline-block;
+  margin-left:1000px;
+}
+
+
+
+</style>
+<body background="3D-Wallpaper.jpg">
+<head><div align="right">
+<a href="home.html"><strong>HOME</strong></a>
+<a href="Practicepage.html"><strong>PRACTICE</strong></a>
+<a href="CODELIBRARY.html"><strong> CODE LIBRARY</strong></a>
+<a href="contact.html"><strong>CONTACT</strong></a>
+<a href="login.html"><strong>LOGIN</strong></a></div>
+<img src="jing.fm-nerd-clipart-184694.png" alt="LOGO" width="220" height="100"/>
+<h1>This set of C++ Programming Multiple Choice Questions & Answers (MCQs).</h1>
+<div id="quiz"></div>
+<button id="submit">Submit Quiz</button>
+<div id="results"></div>
+
+<link rel="stylesheet" type="text/css" href="mcqcss.css">
+</head>
+<button class="button" onClick="location.href='https://www.codechef.com/ide'">Click here for the online complier</button>
+</body>
+
+
+<script>
+
+
+(function(){
+  function buildQuiz(){
+    // variable to store the HTML output
+    const output = [];
+
+    // for each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        // variable to store the list of possible answers
+        const answers = [];
+
+        // and for each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        // add this question and its answers to the output
+        output.push(
+          `<div class="question"> ${currentQuestion.question} </div>
+          <div class="answers"> ${answers.join('')} </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
+
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+    {
+      question: "Which of the following is the correct syntax of including a user defined header files in C++??",
+      answers: {
+        a: "#include userdefined.h",
+        b: "#include userdefined",
+        c: "#include “userdefined”"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Which of the following is a correct identifier in C++??",
+      answers: {
+        a: "7var",
+        b: "var_1234",
+        c: "7VAR"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which of the following is called address operator?",
+      answers: {
+        a: "&",
+        b: "@",
+        c: "!",
+      },
+      correctAnswer: "a"
+    },
+     {
+      question: "Which of the following is used for comments in C++?",
+      answers: {
+        a: "//",
+        b: "\\",
+        c: "!",
+      },
+      correctAnswer: "a"
+    },
+{
+      question: "Which function is used to read a single character from the console in C++?",
+      answers: {
+        a: "cin.get(ch)",
+        b: "getline(ch)",
+        c: "read(ch)",
+      },
+      correctAnswer: "a"
+    }
+     
+  ];
+
+  // Kick things off
+  buildQuiz();
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+})();
+</script>
+</html>

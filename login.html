@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<style>
+a.k:link, a:visited {
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.k:hover, a:active {
+  background-color: #4CAF50;
+}
+.danger {
+  background-color: white;
+  border-left: 60px solid grey;
+}
+.button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.tab{
+  display:inline-block;
+  margin-left:1000px;
+}
+
+
+
+</style>
+<body background="3D-Wallpaper.jpg">
+<head><div align="right">
+<a class="k" href="home.html"><strong>HOME</strong></a>
+<a class="k" href="Practicepage.html"><strong>PRACTICE</strong></a>
+<a class="k" href="CODELIBRARY.html"><strong> CODE LIBRARY</strong></a>
+<a class="k" href="contact.html"><strong>CONTACT</strong></a>
+<a class="k" href="login.html"><strong>LOGIN</strong></a></div>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;text-align:center;}
+form {border: 3px solid #f1f1f1;width:30%;height:200%;display:inline-block;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 30%;
+  height: 50%;
+}
+
+.container {
+
+  padding: 10px;
+  
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+@media screen and (max-width: 200px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body background="3D-Wallpaper.jpg">
+
+<h2><font color="green">Login Form</font></h2>
+<form>
+  <div class="imgcontainer">
+    <img src="jing.fm-nerd-clipart-184694.png" alt="LOGO" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b><font color="white">Username</font></b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b><font color="white">Password</font></b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+        
+    <a href="home.html"><button type="submit">Login</button></a>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"><font color="white"> Remember me</font>
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <a href="home.html"><button type="button" class="cancelbtn">Cancel</button></a>
+    <span class="psw">Forgot <a href="login.html"><font color="#38a">password?</font></a></span>
+  </div>
+</form></body>
+</html>
